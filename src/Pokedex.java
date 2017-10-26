@@ -7,7 +7,7 @@ public class Pokedex {
 
     }
     public static String [] listPokemon(){
-        String [] list = new String[findEmpty()];
+        String [] list = new String[findEmpty()+1];
         for (int i = 0; i < list.length; i++){
             list [i] = index [i].getSpecies();
         }

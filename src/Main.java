@@ -30,6 +30,7 @@ public class Main {
 
         System.out.println("Your new Pokedex can hold " + size + " Pokemon. Let's start using it!");
         boolean loop = true;
+
         while (loop) {
 
             println("1. List Pokemon");
@@ -40,7 +41,7 @@ public class Main {
             println("6. Exit");
             println("");
             println("What would you like to do?");
-            scan.next();
+
             String choice = scan.nextLine();
             Integer result;
             if (choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4")||choice.equals("5")||choice.equals("6"))
@@ -49,13 +50,13 @@ public class Main {
                 result = 7;
             }
             switch (result){
-                case 1: String [] x = pokedex.listPokemon();
+                case 1:
                         if(pokedex.findEmpty()== 0){
                             println("There are no Pokemon in your Pokedex!");
                             break;
                         }
-                        for(String y : x){
-                            System.out.print(y);
+                        for(int i = 0; i < pokedex.listPokemon().length; i ++){
+                            System.out.println((pokedex.listPokemon())[i]);
                         }
                         break;
 
