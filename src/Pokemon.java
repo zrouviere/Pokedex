@@ -11,6 +11,8 @@ public class Pokemon {
         speed = species.length() * 3 + 5;
 
     }
+    public Pokemon (){
+    }
 
     public static String getSpecies (){
         return species;
@@ -38,9 +40,9 @@ public class Pokemon {
         speed = x;
     }
     public void evolve(){
-        speed = speed*2;
-        attack= attack*3;
-        defense = defense*5;
+        setSpeed(getSpeed()*2);
+        setAttack(getAttack()*3);
+        setDefense(getDefense()*5);
     }
 
 

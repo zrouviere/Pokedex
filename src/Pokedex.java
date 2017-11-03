@@ -1,8 +1,9 @@
 import java.util.*;
 public class Pokedex {
-    public static Pokemon [] index;
+    public static Pokemon index [];
 
     public Pokedex(int size){
+
         index  = new Pokemon[size];
 
     }
@@ -14,12 +15,20 @@ public class Pokedex {
         return list;
     }
     public boolean addPokemon(String species){
-        if (findEmpty()== -1)
+        int temp = findEmpty();
+        if (temp== -1)
             return false;
-        else {
-            index [findEmpty()] = new Pokemon (species);
+
+            for(int i = 0; i < temp;i++){
+                if(species.equalsIgnoreCase(index[i].getSpecies())){
+                    System.out.println("DUPLICATE");
+                    return false;
+                }}
+                Pokemon fake = new Pokemon (species);
+
+            index [temp] = fake;
             return true;
-        }
+
 
     }
 
@@ -35,15 +44,19 @@ public class Pokedex {
     }
     public int [] checkStats(String species){
         int [] stats = new int [3];
+
         for (Pokemon x : index){
-           if (x.getSpecies().equals(species)) {
+           if (x.getSpecies().equalsIgnoreCase(species)) {
                stats [0] = x.getAttack();
                stats [1] = x.getDefense();
                stats [2] = x.getSpeed();
+
                break;
            }
         }
-        return stats;
+
+         return stats;
+
     }
     public void sortPokedex(){
         Pokemon temp  = new Pokemon("temp");
@@ -73,6 +86,7 @@ public class Pokedex {
 
 
     }
+
 
 
 }
