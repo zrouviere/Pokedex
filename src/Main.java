@@ -52,7 +52,7 @@ public class Main {
             }
             switch (result){
                 case 1:
-                        if(pokedex.findEmpty()== 0){
+                        if(pokedex.arraySize() == 0){
                             println("There are no Pokemon in your Pokedex!");
                             break;
                         }
@@ -66,7 +66,7 @@ public class Main {
                         println("");
                         break;
 
-                case 2: if(pokedex.findEmpty() == -1) {
+                case 2: if(pokedex.arraySize() == size) {
                             println("MAX");
                             println("");
                             break;

@@ -1,8 +1,8 @@
 public class Pokemon {
-    public static String species;
-    public static int attack;
-    public static int defense;
-    public static int speed;
+    public String species;
+    public int attack;
+    public int defense;
+    public int speed;
 
     public Pokemon (String species){
         this.species = species;
@@ -14,29 +14,29 @@ public class Pokemon {
     public Pokemon (){
     }
 
-    public static String getSpecies (){
+    public String getSpecies (){
         return species;
     }
-    public static int getAttack(){
+    public int getAttack(){
         return attack;
     }
-    public static int getDefense(){
+    public int getDefense(){
         return defense;
     }
-    public static int getSpeed(){
+    public int getSpeed(){
         return speed;
 
     }
-    public static void setSpecies(String s){
+    public void setSpecies(String s){
         species = s;
     }
-    public static void setAttack(int x){
+    public void setAttack(int x){
         attack= x;
     }
-    public static void setDefense(int x){
+    public void setDefense(int x){
         defense = x;
     }
-    public static void setSpeed(int x){
+    public void setSpeed(int x){
         speed = x;
     }
     public void evolve(){

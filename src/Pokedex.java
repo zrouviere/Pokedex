@@ -1,47 +1,39 @@
 import java.util.*;
 public class Pokedex {
-    public static Pokemon index [];
+    public static ArrayList<Pokemon> index = new ArrayList<Pokemon>();
+    public final int SIZE;
 
     public Pokedex(int size){
 
-        index  = new Pokemon[size];
+      SIZE= size;
 
     }
     public static String [] listPokemon(){
-        String [] list = new String[findEmpty()+1];
+        String [] list = new String[index.size()];
         for (int i = 0; i < list.length; i++){
-            list [i] = index [i].getSpecies();
+            list [i] = index.get(i).getSpecies();
         }
         return list;
     }
     public boolean addPokemon(String species){
-        int temp = findEmpty();
-        if (temp== -1)
-            return false;
 
-            for(int i = 0; i < temp;i++){
-                if(species.equalsIgnoreCase(index[i].getSpecies())){
+            if (index.size() >= SIZE)
+                return false;
+
+            for (int i = 0; i < index.size(); i++){
+                if(species.equalsIgnoreCase(index.get(i).getSpecies())){
                     System.out.println("DUPLICATE");
                     return false;
                 }}
+
                 Pokemon fake = new Pokemon (species);
 
-            index [temp] = fake;
+            index.add(fake);
             return true;
 
 
     }
 
-    public static int findEmpty(){
-        //returns the location of the first empty slot in the array
-        for (int i = 0; i < index.length; i++){
-            if (index [i] == null)
-                return i;
-        }
-        return -1;
-
-
-    }
     public int [] checkStats(String species){
         int [] stats = new int [3];
 
@@ -61,7 +53,7 @@ public class Pokedex {
     public void sortPokedex(){
         Pokemon temp  = new Pokemon("temp");
 
-        for (int i = 0; i < index.length; i++)
+       /* for (int i = 0; i < index.length; i++)
         {
             for (int j = i + 1; j < index.length; j++)
             { //FIX THIS
@@ -72,7 +64,7 @@ public class Pokedex {
                     index[j] = temp;
                 }
             }
-        }
+        }*/
     }
     public boolean evolvePokemon (String species){
         for (Pokemon x : index){
@@ -86,6 +78,10 @@ public class Pokedex {
 
 
     }
+    public static int arraySize(){
+        return index.size();
+    }
+
 
 
 
